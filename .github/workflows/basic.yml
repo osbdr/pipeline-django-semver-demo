@@ -1,4 +1,4 @@
-name: Standard Pipeline
+name: Django Pipeline
 
 on:
   push:
@@ -47,26 +47,6 @@ jobs:
     - name: isort
       run: isort **/*.py -c -vb
 
-  check:
-    runs-on: ubuntu-18.04
-    steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-python@v2
-      with:
-        python-version: 3.8.2
-
-    - name: pip install
-      run: pip install -r requirements.txt 
-
-    - name: check
-      run: python manage.py check
-
-    - name: test
-      run: python manage.py test
-
-    - name: validate_templates
-      run: python manage.py validate_templates
-
   security:
     runs-on: ubuntu-18.04
     steps:
@@ -91,6 +71,48 @@ jobs:
       with:
         name: Bandit Security Report
         path: report.json
+
+  django_check:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.8.2
+
+    - name: pip install
+      run: pip install -r requirements.txt 
+
+    - name: check
+      run: python manage.py check
+
+  django_test:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.8.2
+
+    - name: pip install
+      run: pip install -r requirements.txt 
+
+    - name: test
+      run: python manage.py test
+      
+  django_templates:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.8.2
+
+    - name: pip install
+      run: pip install -r requirements.txt 
+
+    - name: validate_templates
+      run: python manage.py validate_templates
 
   docker:
     runs-on: ubuntu-18.04
