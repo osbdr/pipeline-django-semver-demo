@@ -64,6 +64,9 @@ jobs:
     - name: test
       run: python manage.py test
 
+    - name: test
+      run: python manage.py validate_templates
+
   security:
     runs-on: ubuntu-18.04
     steps:
