@@ -105,4 +105,5 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: docker build
-      run: docker build -t django-pipeline-demo .
+      run: docker build . --file Dockerfile -t django-pipeline-demo -t django-pipeline-demo:$(date +%s)
+
