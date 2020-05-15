@@ -1,5 +1,5 @@
 
-name: Sqlite
+name: Django Sqlite Mac, Linux, Windows
 
 on: [push]
 
