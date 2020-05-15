@@ -92,7 +92,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip uninstall -y Django
-        pip install Django==${{ matrix.django-version }}
+        pip install Django${{ matrix.django-version }}
     - name: Django test runner
       run: |
         python manage.py test
