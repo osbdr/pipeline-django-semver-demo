@@ -64,7 +64,7 @@ jobs:
     - name: test
       run: python manage.py test
 
-    - name: test
+    - name: validate_templates
       run: python manage.py validate_templates
 
   security:
