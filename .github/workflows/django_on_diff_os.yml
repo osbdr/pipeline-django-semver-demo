@@ -1,7 +1,14 @@
 
 name: Django Sqlite Mac, Linux, Windows
 
-on: [push]
+on:
+  pull_request:
+    branches: '**'
+  push:
+    branches:
+      - develop
+  schedule:
+    - cron: '0 20 * * 5'
 
 jobs:
   build:
