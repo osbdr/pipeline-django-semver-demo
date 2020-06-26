@@ -1,4 +1,4 @@
-# pipeline-django-demo
+# pipeline-django-semver-demo
 
 Beispiel einer Pipeline, die folgendes kann:
 - Outdated Check
