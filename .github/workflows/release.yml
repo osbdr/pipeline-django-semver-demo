@@ -16,7 +16,7 @@ jobs:
         node-version: 12.16.3
 
     - name: prepare
-      run: npm install @semantic-release/gitlab @semantic-release/exec conventional-changelog-conventionalcommits
+      run: npm install @semantic-release/github @semantic-release/exec conventional-changelog-conventionalcommits
       
     - name: release
       run: npx semantic-release
