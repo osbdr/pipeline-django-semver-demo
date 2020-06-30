@@ -9,6 +9,35 @@ Beispiel einer Pipeline, die folgendes kann:
 
 Die Dependencies werden mit Renovate aktualisiert. Mehr Infos: https://github.com/renovatebot/renovate
 
+Dieses Projekt nutzt [`semantic-release`](https://github.com/semantic-release/semantic-release) und [conventionalcommits](https://www.conventionalcommits.org/) für die Versionierung auf `develop` und `master`:
+
+```
+name: Release Pipeline
+
+on:
+  push:
+    branches:
+      - develop
+      - master
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 12.16.3
+
+    - name: prepare
+      run: npm install @semantic-release/github @semantic-release/exec conventional-changelog-conventionalcommits
+
+    - name: release
+      run: npx semantic-release
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+```
+
 > **Hinweis**: 
 > - `pip list --outdated` endet unabhängig vom Ergebnis immer mit Exit Code `0`, damit die Pipeline entsprechend reagiert wurde der Befehl erweitert.
 
