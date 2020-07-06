@@ -51,7 +51,7 @@ jobs:
       run: pip install -r requirements.txt 
 
     - name: isort
-      run: isort **/*.py -c -vb
+      run: isort --check .
 
   security:
     runs-on: ubuntu-latest
