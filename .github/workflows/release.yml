@@ -27,7 +27,7 @@ jobs:
       run: |
         echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u ${{ github.repository }} --password-stdin
         docker build . --file Dockerfile -t docker.pkg.github.com/${{ github.repository }}/app:$version
-        docker push docker.pkg.github.com/phanatic/repo/app:$version
+        docker push docker.pkg.github.com/${{ github.repository }}/app:$version
     - name: release
       run: npx semantic-release
       env:
