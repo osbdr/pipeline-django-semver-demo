@@ -18,7 +18,17 @@ jobs:
     - name: prepare
       run: npm install @semantic-release/github @semantic-release/exec conventional-changelog-conventionalcommits
       
+    - name: get version
+      run: npx semantic-release --generate-notes false --dry-run
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - run: echo ::set-env name=version::$(cat VERSION)
+    - name: publish docker image
+    - run: |
+        echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u ${{ github.repository }} --password-stdin
+        docker build . --file Dockerfile -t docker.pkg.github.com/${{ github.repository }}/app:$version
+        docker push docker.pkg.github.com/phanatic/repo/app:$version
     - name: release
       run: npx semantic-release
       env:
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
