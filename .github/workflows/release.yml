@@ -22,9 +22,9 @@ jobs:
       run: npx semantic-release --generate-notes false --dry-run
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - run: echo ::set-env name=version::$(cat VERSION)
+    - run: echo ::set-env name=version::$(cat version)
     - name: publish docker image
-    - run: |
+      run: |
         echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u ${{ github.repository }} --password-stdin
         docker build . --file Dockerfile -t docker.pkg.github.com/${{ github.repository }}/app:$version
         docker push docker.pkg.github.com/phanatic/repo/app:$version
