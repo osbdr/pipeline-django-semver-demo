@@ -1,4 +1,4 @@
 black==19.10b0
 Django==3.1
 django-extensions==3.0.3
-isort==5.2.2
+isort==5.3.0
