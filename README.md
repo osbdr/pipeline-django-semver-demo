@@ -9,7 +9,33 @@ Beispiel einer Pipeline, die folgendes kann:
 
 Die Dependencies werden mit Renovate aktualisiert. Mehr Infos: https://github.com/renovatebot/renovate
 
-Dieses Projekt nutzt [`semantic-release`](https://github.com/semantic-release/semantic-release) und [conventionalcommits](https://www.conventionalcommits.org/) für die Versionierung auf `develop` und `master`:
+## Semantische Versionierung
+
+Dieses Projekt nutzt [`semantic-release`](https://github.com/semantic-release/semantic-release) und [`conventionalcommits`](https://www.conventionalcommits.org/) für die Versionierung auf `develop` und `master`.
+
+Semantische Versionierung gliedert sich in Major, Minor und Patch. Das Tool analysiert die Titel der Commits, um eine neue Version zu berechnen.
+
+Folgende Präfixe stehen durch die Konfiguration zur Verfügung:
+
+- feat: Minor (neue Features)
+- fix: Patch (Bugfixes)
+- refactor: Patch (Code Refactoring)
+- docs: Patch (Dokumentation)
+- test: Patch (neue Tests)
+- style: Patch (Code Linting)
+- perf: Patch (Performance Verbesserungen)
+- ci: Patch (Pipeline Änderungen)
+- build: Patch (Buildsystem Änderungen)
+- chore: Patch (Updates von Abhängigkeiten)
+
+Beispiele
+
+- Einführung von neuen Tests: `test: add new unit tests`, erhöht die Version von z.B. `1.0.0` auf `1.0.1`
+- Einführung von neuen Features: `feat: add new features`, erhöht die Version von z.B. `1.0.0` auf `1.1.0`
+- Einführung von neuen Features, die nicht abwärtskompatibel sind: `feat!: add new features`, erhöht die Version von z.B. `1.0.0` auf `2.0.0`
+
+> **Hinweis**:
+Der `develop` Branch ist als Prerelease konfiguriert, d.h. die Versionierung weicht von der üblichen semantischen Versionierung ab. Das ist nötig, um unterscheiden zu können, ob das Release vom `develop` oder vom `master` genutzt wird. Auf dem `develop` Branch beinhaltet die Version daher zusätzlich `develop` und eine Buildnummer, z.B. `1.1.0-develop.1`
 
 ```
 name: Release Pipeline
@@ -47,6 +73,8 @@ jobs:
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
+
+## Pipeline
 
 > **Hinweis**: 
 > - `pip list --outdated` endet unabhängig vom Ergebnis immer mit Exit Code `0`, damit die Pipeline entsprechend reagiert wurde der Befehl erweitert.
