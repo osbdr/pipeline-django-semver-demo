@@ -1,109 +1,119 @@
 {
-    "plugins":[
-       [
-          "@semantic-release/commit-analyzer",
-          {
-             "releaseRules":[
-                {
-                   "type":"refactor",
-                   "release":"patch"
-                },
-                {
-                   "type":"docs",
-                   "release":"patch"
-                },
-                {
-                   "type":"test",
-                   "release":"patch"
-                },
-                {
-                   "type":"style",
-                   "release":"patch"
-                },
-                {
-                   "type":"perf",
-                   "release":"patch"
-                },
-                {
-                   "type":"ci",
-                   "release":"patch"
-                },
-                {
-                   "type":"build",
-                   "release":"patch"
-                },
-                {
-                   "type":"chore",
-                   "release":"patch"
-                }
-             ]
-          }
-       ],
-       [
-          "@semantic-release/release-notes-generator",
-          {
-             "preset":"conventionalcommits",
-             "presetConfig":{
-                "types":[
-                   {
-                      "type":"feat",
-                      "section":"Features",
-                      "hidden":false
-                   },
-                   {
-                      "type":"fix",
-                      "section":"Fixes",
-                      "hidden":false
-                   },
-                   {
-                      "type":"docs",
-                      "section":"Documentation",
-                      "hidden":false
-                   },
-                   {
-                      "type":"style",
-                      "section":"Styling",
-                      "hidden":false
-                   },
-                   {
-                      "type":"refactor",
-                      "section":"Refactor",
-                      "hidden":false
-                   },
-                   {
-                      "type":"perf",
-                      "section":"Performance",
-                      "hidden":false
-                   },
-                   {
-                      "type":"test",
-                      "section":"Tests",
-                      "hidden":false
-                   },
-                   {
-                      "type":"ci",
-                      "section":"CI",
-                      "hidden":false
-                   },
-                   {
-                      "type":"chore",
-                      "section":"Chore",
-                      "hidden":false
-                   }
-                ]
-             }
-          }
-       ],
-       [
-          "@semantic-release/exec",
-          {
-             "verifyReleaseCmd":"echo ${nextRelease.version} > version"
-          }
-       ],
-       "@semantic-release/github"
-    ],
-    "branches":[
-       {"name": "master"},
-       {"name": "develop", "channel": "develop", "prerelease": "develop"}
-    ]
- }
+   "preset": "conventionalcommits",
+   "plugins": [
+      [
+         "@semantic-release/commit-analyzer",
+         {
+            "releaseRules": [
+               {
+                  "breaking": true,
+                  "release": "major"
+               },
+               {
+                  "type": "refactor",
+                  "release": "patch"
+               },
+               {
+                  "type": "docs",
+                  "release": "patch"
+               },
+               {
+                  "type": "test",
+                  "release": "patch"
+               },
+               {
+                  "type": "style",
+                  "release": "patch"
+               },
+               {
+                  "type": "perf",
+                  "release": "patch"
+               },
+               {
+                  "type": "ci",
+                  "release": "patch"
+               },
+               {
+                  "type": "build",
+                  "release": "patch"
+               },
+               {
+                  "type": "chore",
+                  "release": "patch"
+               }
+            ]
+         }
+      ],
+      [
+         "@semantic-release/release-notes-generator",
+         {
+            "presetConfig": {
+               "types": [
+                  {
+                     "type": "feat",
+                     "section": "Features",
+                     "hidden": false
+                  },
+                  {
+                     "type": "fix",
+                     "section": "Fixes",
+                     "hidden": false
+                  },
+                  {
+                     "type": "docs",
+                     "section": "Documentation",
+                     "hidden": false
+                  },
+                  {
+                     "type": "style",
+                     "section": "Styling",
+                     "hidden": false
+                  },
+                  {
+                     "type": "refactor",
+                     "section": "Refactor",
+                     "hidden": false
+                  },
+                  {
+                     "type": "perf",
+                     "section": "Performance",
+                     "hidden": false
+                  },
+                  {
+                     "type": "test",
+                     "section": "Tests",
+                     "hidden": false
+                  },
+                  {
+                     "type": "ci",
+                     "section": "CI",
+                     "hidden": false
+                  },
+                  {
+                     "type": "chore",
+                     "section": "Chore",
+                     "hidden": false
+                  }
+               ]
+            }
+         }
+      ],
+      [
+         "@semantic-release/exec",
+         {
+            "verifyReleaseCmd": "echo ${nextRelease.version} > version"
+         }
+      ],
+      "@semantic-release/github"
+   ],
+   "branches": [
+      {
+         "name": "master"
+      },
+      {
+         "name": "develop",
+         "channel": "develop",
+         "prerelease": "develop"
+      }
+   ]
+}
