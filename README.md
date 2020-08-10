@@ -37,21 +37,21 @@ Within a configuration file you can defined which prefixes within a "$ git commi
 
 Examples
 
-- Introduction of a new tests, increases the version from e.g. '1.0.0' to '1.0.1
+- Introduction of a new tests, increases the version from e.g. `1.0.0` to `1.0.1`
 
   `$ git commit -m "test: add new unit tests"`
   
-- Introduction of a new features, increases the version from e.g. '1.0.0' to '1.1.0
+- Introduction of a new features, increases the version from e.g. `1.0.0` to `1.1.0`
   
   `$ git commit -m "feat: add new features"`
   
-- Introduction of a new features that are not backward compatible, increases the version from e.g. '1.0.0' to '2.0.0':
+- Introduction of a new features that are not backward compatible, increases the version from e.g. `1.0.0` to `2.0.0`:
 
   `$ git commit -m "feat!: add new features"`
 
 ### 'Develop' Branch
 
-The `develop` branch is configured as a pre-release. This is necessary in order to distinguish whether the release is used by the `develop' or the `master'. On the `develop' branch, the version therefore also contains `develop' and a build number, e.g. `1.1.0-develop.1
+The `develop` branch is configured as a pre-release. This is necessary in order to distinguish whether the release is used by the `develop' or the `master'. On the `develop' branch, the version therefore also contains `develop` and a build number, e.g. `1.1.0-develop.1`
 
 ### `develop` Branch
 
