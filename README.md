@@ -1,46 +1,57 @@
 # pipeline-django-semver-demo
 
-Beispiel einer Pipeline, die folgendes kann:
-- Outdated Check
-- Code Format mit `black` überprüfen
-- Sortierung der Imports mit `isort` überprüfen
-- Security Check mit `bandit`
-- Erstellung eines Docker Images
+Extensive Django Pipeline, with Semantic Versioning and Gitflow Workflow. The pipeline demo allow the following:
 
-Die Dependencies werden mit Renovate aktualisiert. Mehr Infos: https://github.com/renovatebot/renovate
+- Outdated packages check with 'outdated'
+- Check code format with 'black
+- Check the sorting of the imports with 'isort'
+- Security check with 'bandit
+- Creation of a Docker Image
 
-## Semantische Versionierung
+All dependencies are updated with Renovate, for more information check the following page: https://github.com/renovatebot/renovate
 
-Dieses Projekt nutzt [`semantic-release`](https://github.com/semantic-release/semantic-release) und [`conventionalcommits`](https://www.conventionalcommits.org/) für die Versionierung auf `develop` und `master`.
+## Semantic versioning
 
-Semantische Versionierung gliedert sich in Major, Minor und Patch. Das Tool analysiert die Titel der Commits, um eine neue Version zu berechnen.
+This project uses [`semantic-release`](https://github.com/semantic-release/semantic-release) and [`conventionalcommits`](https://www.conventionalcommits.org/) for versioning to `develop` and `master`.
 
-Folgende Präfixe stehen durch die Konfiguration [`.releaserc.json`](.releaserc.json) zur Verfügung:
+Semantic versioning is divided into 
+* major, 
+* minor and 
+* patch(es). 
 
-- feat: Minor (neue Features)
-- fix: Patch (Bugfixes)
+The tool analyses the commit titles to calculate a new version.
+
+Within a configuration file you can defined which prefixes within a "$ git commit -m 'prefix commit message'" are applied. The file is called:
+[`.releaserc.json`](.releaserc.json), and common prefixes are
+
+- feat: Minor (new features)
+- fix: Patch (bug fixes)
 - refactor: Patch (Code Refactoring)
-- docs: Patch (Dokumentation)
-- test: Patch (neue Tests)
+- docs: Patch (documentation)
+- test: Patch (new tests)
 - style: Patch (Code Linting)
-- perf: Patch (Performance Verbesserungen)
-- ci: Patch (Pipeline Änderungen)
-- build: Patch (Buildsystem Änderungen)
-- chore: Patch (Updates von Abhängigkeiten)
+- perf: Patch (performance improvements)
+- ci: Patch (pipeline changes)
+- build: Patch (build system changes)
+- chore: Patch (updates of dependencies)
 
-Beispiele
+Examples
 
-- Einführung von neuen Tests, erhöht die Version von z.B. `1.0.0` auf `1.0.1`:
+- Introduction of a new tests, increases the version from e.g. '1.0.0' to '1.0.1
 
   `$ git commit -m "test: add new unit tests"`
   
-- Einführung von neuen Features, erhöht die Version von z.B. `1.0.0` auf `1.1.0`:
+- Introduction of a new features, increases the version from e.g. '1.0.0' to '1.1.0
   
   `$ git commit -m "feat: add new features"`
   
-- Einführung von neuen Features, die nicht abwärtskompatibel sind, erhöht die Version von z.B. `1.0.0` auf `2.0.0`:
+- Introduction of a new features that are not backward compatible, increases the version from e.g. '1.0.0' to '2.0.0':
 
   `$ git commit -m "feat!: add new features"`
+
+### 'Develop' Branch
+
+The `develop` branch is configured as a pre-release. This is necessary in order to distinguish whether the release is used by the `develop' or the `master'. On the `develop' branch, the version therefore also contains `develop' and a build number, e.g. `1.1.0-develop.1
 
 ### `develop` Branch
 
@@ -253,5 +264,4 @@ jobs:
 - black: https://github.com/psf/black
 - isort: https://github.com/timothycrosley/isort
 - bandit: https://pypi.org/project/bandit/
-
 - Docker Pipeline: https://partner.bdr.de/gitlab/kfe-devops/pipeline-docker-nodejs-demo
