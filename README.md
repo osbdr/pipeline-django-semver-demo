@@ -2,10 +2,10 @@
 
 Extensive Django Pipeline, with Semantic Versioning and Gitflow Workflow. The pipeline demo allows the following:
 
-- Outdated packages check with 'outdated'
-- Check code format with 'black
-- Check the sorting of the imports with 'isort'
-- Security check with 'bandit
+- Outdated packages check
+- Check code format with `black`
+- Check the sorting of the imports with `isort`
+- Security check with `bandit`
 - Creation of a Docker Image
 
 All dependencies are updated with Renovate, for more information check the following page: https://github.com/renovatebot/renovate
