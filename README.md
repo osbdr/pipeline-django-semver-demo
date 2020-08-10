@@ -15,7 +15,7 @@ Dieses Projekt nutzt [`semantic-release`](https://github.com/semantic-release/se
 
 Semantische Versionierung gliedert sich in Major, Minor und Patch. Das Tool analysiert die Titel der Commits, um eine neue Version zu berechnen.
 
-Folgende Präfixe stehen durch die Konfiguration zur Verfügung:
+Folgende Präfixe stehen durch die Konfiguration [`.releaserc.json`](.releaserc.json) zur Verfügung:
 
 - feat: Minor (neue Features)
 - fix: Patch (Bugfixes)
