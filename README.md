@@ -53,10 +53,6 @@ Examples
 
 The `develop` branch is configured as a pre-release. This is necessary in order to distinguish whether the release is used by the `develop` or the `master`. On the `develop` branch, the version therefore also contains `develop` and a build number, e.g. `1.1.0-develop.1`
 
-### `develop` Branch
-
-Der `develop` Branch ist als Pre-Release konfiguriert. Das ist nötig, um unterscheiden zu können, ob das Release vom `develop` oder vom `master` genutzt wird. Auf dem `develop` Branch beinhaltet die Version daher zusätzlich `develop` und eine Buildnummer, z.B. `1.1.0-develop.1`
-
 ```
 name: Release Pipeline
 
