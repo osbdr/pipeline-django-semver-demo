@@ -1,6 +1,6 @@
 # pipeline-django-semver-demo
 
-Extensive Django Pipeline, with Semantic Versioning and Gitflow Workflow. The pipeline demo allow the following:
+Extensive Django Pipeline, with Semantic Versioning and Gitflow Workflow. The pipeline demo allows the following:
 
 - Outdated packages check with 'outdated'
 - Check code format with 'black
@@ -49,9 +49,9 @@ Examples
 
   `$ git commit -m "feat!: add new features"`
 
-### 'Develop' Branch
+### `develop` Branch
 
-The `develop` branch is configured as a pre-release. This is necessary in order to distinguish whether the release is used by the `develop' or the `master'. On the `develop' branch, the version therefore also contains `develop` and a build number, e.g. `1.1.0-develop.1`
+The `develop` branch is configured as a pre-release. This is necessary in order to distinguish whether the release is used by the `develop` or the `master`. On the `develop` branch, the version therefore also contains `develop` and a build number, e.g. `1.1.0-develop.1`
 
 ### `develop` Branch
 
