@@ -21,7 +21,7 @@ Semantic versioning is divided into
 
 The tool analyses the commit titles to calculate a new version.
 
-Within a configuration file you can defined which prefixes within a "$ git commit -m 'prefix commit message'" are applied. The file is called:
+Within a configuration file you can defined which prefixes within a `$ git commit -m "prefix commit message"` are applied. The file is called:
 [`.releaserc.json`](.releaserc.json), and common prefixes are
 
 - feat: Minor (new features)
