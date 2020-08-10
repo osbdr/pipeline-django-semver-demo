@@ -30,12 +30,21 @@ Folgende Präfixe stehen durch die Konfiguration [`.releaserc.json`](.releaserc.
 
 Beispiele
 
-- Einführung von neuen Tests: `test: add new unit tests`, erhöht die Version von z.B. `1.0.0` auf `1.0.1`
-- Einführung von neuen Features: `feat: add new features`, erhöht die Version von z.B. `1.0.0` auf `1.1.0`
-- Einführung von neuen Features, die nicht abwärtskompatibel sind: `feat!: add new features`, erhöht die Version von z.B. `1.0.0` auf `2.0.0`
+- Einführung von neuen Tests, erhöht die Version von z.B. `1.0.0` auf `1.0.1`:
 
-> **Hinweis**:
-Der `develop` Branch ist als Prerelease konfiguriert, d.h. die Versionierung weicht von der üblichen semantischen Versionierung ab. Das ist nötig, um unterscheiden zu können, ob das Release vom `develop` oder vom `master` genutzt wird. Auf dem `develop` Branch beinhaltet die Version daher zusätzlich `develop` und eine Buildnummer, z.B. `1.1.0-develop.1`
+  `$ git commit -m "test: add new unit tests"`
+  
+- Einführung von neuen Features, erhöht die Version von z.B. `1.0.0` auf `1.1.0`:
+  
+  `$ git commit -m "feat: add new features"`
+  
+- Einführung von neuen Features, die nicht abwärtskompatibel sind, erhöht die Version von z.B. `1.0.0` auf `2.0.0`:
+
+  `$ git commit -m "feat!: add new features"`
+
+### `develop` Branch
+
+Der `develop` Branch ist als Pre-Release konfiguriert. Das ist nötig, um unterscheiden zu können, ob das Release vom `develop` oder vom `master` genutzt wird. Auf dem `develop` Branch beinhaltet die Version daher zusätzlich `develop` und eine Buildnummer, z.B. `1.1.0-develop.1`
 
 ```
 name: Release Pipeline
